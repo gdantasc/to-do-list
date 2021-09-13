@@ -37,24 +37,34 @@ export default {
 }
 
 .form-element {
-  position: relative;
+  /* position: relative; */
   color: #fff;
   width: 100%;
   height: 100%;
   padding: 10px;
+  outline: none;
 }
 
 .form-btn {
   position: absolute;
-   
+    right: 5px;
 }
 
 .form {
+  display: flex;  
   margin: auto;
+  align-items: center;
   justify-content: center;
   background-color: rgba(128, 128, 128, 0.349);
   border-radius: 10px;
   width: 450px;
   height: 60px;
 }
+
+.v-btn {
+    width: 75px !important;
+    height: 40px !important;
+    
+}
+
 </style>

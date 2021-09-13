@@ -1,9 +1,13 @@
 <template>
-  <div
-    @click="$emit('taskStateChanged', task)"
-   class="task" :class="stateClass">
-    <v-icon  @click.stop="$emit('taskDeleted', task)" class="close">{{ svgDelete }}</v-icon>
-    <p>{{ task.name }}</p>
+  <div class="task" :class="stateClass">
+    <v-checkbox
+      v-model="checkbox"
+      @click="$emit('taskStateChanged', task)"
+    ></v-checkbox>
+    <v-icon @click.stop="$emit('taskDeleted', task)" class="close">{{
+      svgDelete
+    }}</v-icon>
+    <v-text>{{ task.name }}</v-text>
   </div>
 </template>
 
@@ -15,9 +19,10 @@ export default {
     task: { type: Object, required: true },
   },
   data() {
-    return { 
+    return {
       svgDelete: mdiTrashCanOutline,
-    }
+      checkbox: !this.task.pending,
+    };
   },
   computed: {
     stateClass() {
@@ -32,11 +37,11 @@ export default {
 
 <style>
 .task {
-  position:relative;
+  position: relative;
   box-sizing: border-box;
   width: 600px;
   height: 70px;
-  padding: 10px;
+  padding: 20px;
   border-radius: 10px;
   font-size: 1.2rem;
   font-weight: 500;
@@ -44,30 +49,33 @@ export default {
   user-select: none;
   display: flex;
   align-items: center;
- background-color: rgba(128, 128, 128, 0.349);
+  background-color: rgba(128, 128, 128, 0.349);
 }
 
 .pending {
-  /* background-color: rgba(255, 0, 0, 0.747); */
 }
 
-.done {
+.done v-text {
   color: #ddd;
-  /* background-color: rgba(0, 128, 0, 0.637); */
   text-decoration: line-through;
 }
+.done {
+  background-color: rgba(128, 128, 128, 0.041);
+}
 
-.close{
-    position:absolute;
-    left: 540px;
-    top: 0px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    height:40px;
-    width: 40px;
-    border-radius:10px;
-    display: flex;
-    justify-content: end;
-    background-color: rgba(39, 38, 38, 0.253)
+.close {
+  position: absolute;
+  left: 500px;
+  top: 0px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: end;
+}
+.close:hover {
+  background-color: rgba(39, 38, 38, 0.253);
 }
 </style>

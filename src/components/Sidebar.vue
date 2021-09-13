@@ -53,7 +53,7 @@ export default {
       svgPath: mdiClipboardTextOutline,
       svgGithub: mdiGithub,
       svgTheme: mdiThemeLightDark,
-      items: [{ title: "Tarefas"}],
+      items: [{ title: "Tarefas" }],
       right: null,
     };
   },
