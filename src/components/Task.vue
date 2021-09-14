@@ -4,6 +4,7 @@
       v-model="checkbox"
       @click="$emit('taskStateChanged', task)"
     ></v-checkbox>
+    <Modal  class="edit"/>
     <v-icon @click.stop="$emit('taskDeleted', task)" class="close">{{
       svgDelete
     }}</v-icon>
@@ -13,8 +14,10 @@
 
 <script>
 import { mdiTrashCanOutline } from "@mdi/js";
+import Modal from "./Modal.vue"
 
 export default {
+  components: { Modal},
   props: {
     task: { type: Object, required: true },
   },
@@ -45,14 +48,10 @@ export default {
   border-radius: 10px;
   font-size: 1.2rem;
   font-weight: 500;
-  cursor: pointer;
   user-select: none;
   display: flex;
   align-items: center;
   background-color: rgba(128, 128, 128, 0.349);
-}
-
-.pending {
 }
 
 .done v-text {
@@ -62,7 +61,21 @@ export default {
 .done {
   background-color: rgba(128, 128, 128, 0.041);
 }
+.edit {
+   position: absolute;
+  left: 510px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center
+}
+.edit:hover {
+  background-color: rgba(26, 25, 25, 0.253);
 
+}
 .close {
   position: absolute;
   left: 500px;
@@ -76,6 +89,6 @@ export default {
   justify-content: end;
 }
 .close:hover {
-  background-color: rgba(39, 38, 38, 0.253);
+  background-color: rgba(26, 25, 25, 0.253);
 }
 </style>

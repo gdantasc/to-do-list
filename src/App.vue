@@ -14,10 +14,10 @@
             @taskStateChanged="toggleTaskState"
           />
         </v-container>
-      </v-content>
-    </div>
-  </v-app>
+      </v-content></div
+  ></v-app>
 </template>
+        
 
 <script>
 import Sidebar from "./components/Sidebar.vue";

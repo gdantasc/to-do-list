@@ -46,7 +46,7 @@ export default {
 }
 
 .form-btn {
-  position: absolute;
+  /* position: absolute; */
     right: 5px;
 }
 
