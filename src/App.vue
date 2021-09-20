@@ -1,23 +1,25 @@
-<template v-container>
+<template>
   <v-app dark>
     <div class="separator">
       <v-navigation-drawer>
-        <Sidebar />
+        <Sidebar/>
       </v-navigation-drawer>
 
       <v-content class="div1">
         <v-container>
-          <NewTask @taskAdded="addTask" />
+          <NewTask @taskAdded="addTask"/>
           <TaskGrid
-            :tasks="tasks"
-            @taskDeleted="deleteTask"
-            @taskStateChanged="toggleTaskState"
+              :tasks="tasks"
+              @taskDeleted="deleteTask"
+              @taskStateChanged="toggleTaskState"
           />
         </v-container>
-      </v-content></div
-  ></v-app>
+      </v-content>
+    </div
+    >
+  </v-app>
 </template>
-        
+
 
 <script>
 import Sidebar from "./components/Sidebar.vue";
@@ -27,7 +29,7 @@ import NewTask from "./components/NewTask.vue";
 export default {
   name: "App",
 
-  components: { Sidebar, TaskGrid, NewTask },
+  components: {Sidebar, TaskGrid, NewTask},
 
   data() {
     return {
@@ -45,7 +47,7 @@ export default {
   methods: {
     addTask(task) {
       const sameName = (t) => t.name === task.name;
-      const reallyNew = this.tasks.filter(sameName).length == 0;
+      const reallyNew = this.tasks.filter(sameName).length === 0;
       if (reallyNew || sameName === "") {
         this.tasks.push({
           name: task.name,
@@ -73,6 +75,7 @@ export default {
   width: 100%;
   display: flex;
 }
+
 .div1 {
   max-width: 1080px;
   margin: 25px 0;
