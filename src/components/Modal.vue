@@ -53,6 +53,7 @@ export default {
   data: () => ({
     dialog: false,
     SvgPencil: mdiPencil,
+    description: '',
   }),
 };
 </script>
