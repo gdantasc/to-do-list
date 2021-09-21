@@ -48,7 +48,7 @@ export default {
     addTask(task) {
       const sameName = (t) => t.name === task.name;
       const reallyNew = this.tasks.filter(sameName).length === 0;
-      if (reallyNew || sameName === "") {
+      if (reallyNew || sameName === '') {
         this.tasks.push({
           name: task.name,
           pending: task.pending || true,

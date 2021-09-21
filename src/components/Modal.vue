@@ -19,10 +19,12 @@
                     <v-text-field label="Nome" required></v-text-field>
                   </v-col>
                   <v-col cols="12" md="10" sm="10">
-                    <v-text-field
-                        hint="Insira uma descrição pra sua tarefa"
-                        label="Descrição"
-                    ></v-text-field>
+                    <label>Descrição</label>
+                    <v-textarea
+                        v-model="description"
+                        placeholder="Insira uma Descrição para sua tarefa"
+                        auto-grow
+                    ></v-textarea>
                   </v-col>
                 </v-row>
               </v-container>
